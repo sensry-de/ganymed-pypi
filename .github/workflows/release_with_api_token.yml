@@ -28,7 +28,7 @@ jobs:
       - name: Build package
         run: python -m build
 
-      - name: Publish package to PyPI
+      - name: Publish package to PyPI (via API Token)
         env:
           PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
         run: python -m twine upload --username __token__ --password "$PYPI_API_TOKEN" dist/*
