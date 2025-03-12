@@ -1,11 +1,10 @@
 name: Publish Python Package
 
-# on:
-#  release:
-#    types: [created]  # Runs when a new release is created
+on:
+  release:
+    types: [created]  # Runs when a new release is created
 
 permissions:
-  id-token: write  # Required for PyPI Trusted Publishing
   contents: read
 
 jobs:
@@ -29,6 +28,7 @@ jobs:
       - name: Build package
         run: python -m build
 
-      - name: Publish package to PyPI (Trusted Publishing)
-        if: github.event_name == 'release'
-        uses: pypa/gh-action-pypi-publish@release/v1
+      - name: Publish package to PyPI
+        env:
+          PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        run: python -m twine upload --username __token__ --password "$PYPI_API_TOKEN" dist/*
