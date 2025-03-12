@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sry_gnm_sy1xx_bl"
-version = "0.1.5"
+version = "0.1.6"
 description = "Sensry Ganymed Sy1xx Bootloader Tool"
 authors = [{ name = "Sven Ginka", email = "s.ginka@sensry.de" }]
 readme = "README.md"
