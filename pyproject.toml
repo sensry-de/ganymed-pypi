@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sry_gnm_sy1xx_bl"
+version = "0.1.0"
+description = "Sensry Ganymed Sy1xx Bootloader Tool"
+authors = [{ name = "Sven Ginka", email = "s.ginka@sensry.de" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+dependencies = []  # Add dependencies if needed
+
+[project.urls]
+Homepage = "https://github.com/sensry-de/ganymed-sy1xx-loader"
