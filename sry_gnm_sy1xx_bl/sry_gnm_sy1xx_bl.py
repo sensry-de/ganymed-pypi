@@ -1,3 +1,11 @@
+#
+# Copyright (C) Sensry GmbH
+# Maria-Reiche-Str. 1
+# 01109 Dresden
+#
+# \author s.ginka@sensry.de
+# \date 11.Feb.2023
+
 import os.path
 import threading
 
