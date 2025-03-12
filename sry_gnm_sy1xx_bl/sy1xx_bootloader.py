@@ -10,7 +10,7 @@ import threading
 import time
 from queue import Queue, Empty
 
-from ganymed_sy1xx_pypi_package.sry_gnm_sy1xx_bl.logging_module import *
+from .logging_module import *
 
 bSOF = 0x5C
 

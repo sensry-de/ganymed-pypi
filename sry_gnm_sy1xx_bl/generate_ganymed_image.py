@@ -1,10 +1,4 @@
-#!/bin/python3
-
-import sys
-import os
 import argparse
-import subprocess
-import time
 import json
 import binascii
 from array import array

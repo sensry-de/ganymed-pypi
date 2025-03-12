@@ -11,7 +11,7 @@ import threading
 from queue import Queue, Empty
 import serial.tools.list_ports
 
-from ganymed_sy1xx_pypi_package.sry_gnm_sy1xx_bl.logging_module import *
+from .logging_module import *
 
 class ThreadedSerialPortHandler:
     verbose_com = False

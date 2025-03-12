@@ -9,7 +9,7 @@ description = "Sensry Ganymed Sy1xx Bootloader Tool"
 authors = [{ name = "Sven Ginka", email = "s.ginka@sensry.de" }]
 readme = "README.md"
 license = { file = "LICENSE" }
-dependencies = []  # Add dependencies if needed
+dependencies = ["pyserial"]
 
 [project.urls]
 Homepage = "https://github.com/sensry-de/ganymed-sy1xx-loader"
