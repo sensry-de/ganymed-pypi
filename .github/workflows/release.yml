@@ -1,6 +1,8 @@
 name: Publish Python Package
 
-# on:
+on:
+  workflow_dispatch:
+
 #  release:
 #    types: [created]  # Runs when a new release is created
 
