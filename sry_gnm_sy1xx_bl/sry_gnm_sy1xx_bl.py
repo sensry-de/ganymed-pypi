@@ -1,10 +1,10 @@
 import os.path
 import threading
 
-from logging_module import logger
-from sy1xx_bootloader import Sy1xxBootloader
-from threaded_serial_port_handler import ThreadedSerialPortHandler
-from generate_ganymed_image import generate_ganymed_image
+from .logging_module import logger
+from .sy1xx_bootloader import Sy1xxBootloader
+from .threaded_serial_port_handler import ThreadedSerialPortHandler
+from .generate_ganymed_image import generate_ganymed_image
 
 
 class SryGnmSy1xxBL:
