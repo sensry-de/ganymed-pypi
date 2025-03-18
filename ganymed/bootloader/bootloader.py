@@ -15,7 +15,7 @@ from .threaded_serial_port_handler import ThreadedSerialPortHandler
 from .generate_ganymed_image import generate_ganymed_image
 
 
-class SryGnmSy1xxBL:
+class Bootloader:
 
     def __init__(self):
         self.connected = False
