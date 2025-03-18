@@ -6,9 +6,18 @@ available modules:
 
 ## Installation
 
+If installed for the first time:
+
 ```bash
 pip install ganymed
 ```
+
+If an older version is installed and a newer version is available:
+
+```bash
+pip install --upgrade ganymed
+```
+
 
 
 ## Sensry Ganymed Sy1xx Bootloader -- ganymed.bootloader
@@ -52,9 +61,6 @@ In debug mode, we flash the debug version of the coreugard only. The application
 ```python
 import os
 from ganymed.bootloader import Bootloader
-
-# convert binary to application ganymed-image
-application_gnm = Bootloader.convert_zephyr_bin("zephyr_demo_app.bin")
 
 # create the loader
 flash = Bootloader()
