@@ -119,7 +119,8 @@ class Bootloader:
         self.job_done.wait()
         print("entered loading mode")
 
-    def convert_zephyr_bin(self, zephyr_bin):
+    @staticmethod
+    def convert_zephyr_bin(zephyr_bin):
         zephyr_gnm = zephyr_bin + ".gnm"
         zephyr_meta = zephyr_bin + ".meta"
         generate_ganymed_image(zephyr_bin, zephyr_gnm, zephyr_meta)

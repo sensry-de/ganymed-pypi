@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ganymed"
-version = "0.1.14"
+version = "0.1.15"
 description = "Sensry Ganymed Sy1xx Package"
 authors = [{ name = "Sven Ginka", email = "s.ginka@sensry.de" }]
 readme = "README.md"

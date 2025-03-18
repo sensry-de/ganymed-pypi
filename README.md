@@ -20,14 +20,11 @@ The Sensry Ganymed SY1xx Bootloader is a tool designed for interfacing with the 
 import os
 from ganymed.bootloader import Bootloader
 
-# define the file to be uploaded
-application_bin = "zephyr_demo_app.bin"
+# convert binary to application ganymed-image
+application_gnm = Bootloader.convert_zephyr_bin("zephyr_demo_app.bin")
 
 # create the loader
 flash = Bootloader()
-
-# convert binary to application ganymed-image
-application_gnm = flash.convert_zephyr_bin(application_bin)
 
 # connect to serial
 flash.connect("/dev/ttyUSB0")
