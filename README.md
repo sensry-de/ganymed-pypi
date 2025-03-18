@@ -21,17 +21,16 @@ import os
 from ganymed.bootloader import Bootloader
 
 # define the file to be uploaded
-coreguard_bin = os.path.join("bin", "coreguard-bl.bin")
-application_bin = os.path.join("bin", "zephyr_demo_app.bin")
+application_bin = "zephyr_demo_app.bin"
 
 # create the loader
 flash = Bootloader()
 
+# convert binary to application ganymed-image
+application_gnm = flash.convert_zephyr_bin(application_bin)
+
 # connect to serial
 flash.connect("/dev/ttyUSB0")
-
-# convert binary to application ganymed image
-application_gnm = flash.convert_zephyr_bin(application_bin)
 
 # set the controller into bootloader mode
 flash.enter_loading_mode()
@@ -39,11 +38,14 @@ flash.enter_loading_mode()
 # clear the internal flash
 flash.clear_mram()
 
+# enable the flash mode
+flash.set_flash_mode()
+
+# alternatively enable debug mode to enable ram debugging
+# flash.set_debug_mode()
+
 # write the new binaries
-flash.write_mram(coreguard_bin, application_gnm)
+flash.write_ganymed_image_to_mram(application_gnm)
 
 print("done")
 ```
-
-
-
