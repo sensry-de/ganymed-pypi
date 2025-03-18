@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ganymed"
-version = "0.1.8"
+version = "0.1.9"
 description = "Sensry Ganymed Sy1xx Package"
 authors = [{ name = "Sven Ginka", email = "s.ginka@sensry.de" }]
 readme = "README.md"
@@ -13,6 +13,9 @@ dependencies = ["pyserial"]
 
 [tool.setuptools.packages]
 find = {}
+
+[tool.setuptools.package-data]
+mypackage = ["bootloader/bl/*.bin"]
 
 [project.urls]
 Homepage = "https://github.com/sensry-de/ganymed-pypi"

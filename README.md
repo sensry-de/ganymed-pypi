@@ -1,25 +1,31 @@
-# Sensry Ganymed Sy1xx Bootloader CLI
+# Sensry Ganymed Sy1xx Package
 
-The Sensry Ganymed SY1xx Bootloader CLI is a command-line tool designed for interfacing with the bootloader of Sensry Ganymed SY1xx series devices. It enables users to flash firmware, update bootloader configurations, and manage device firmware over supported communication interfaces (such as UART, USB, or SPI). The tool is useful for developers working with Sensry Ganymed SY1xx microcontrollers, allowing efficient firmware deployment and maintenance. 
+available modules:
+
+* ganymed.bootloader
 
 ## Installation
 
 ```bash
-pip install sry-gnm-sy1xx-bl
+pip install ganymed
 ```
 
-## Usage
+
+## Sensry Ganymed Sy1xx Bootloader -- ganymed.bootloader
+
+The Sensry Ganymed SY1xx Bootloader is a tool designed for interfacing with the bootloader of Sensry Ganymed SY1xx series devices. It enables users to flash firmware, update bootloader configurations, and manage device firmware over supported communication interfaces (such as UART, USB, or SPI). The tool is useful for developers working with Sensry Ganymed SY1xx microcontrollers, allowing efficient firmware deployment and maintenance. 
+
 
 ```python
 import os
-from sry_gnm_sy1xx_bl import SryGnmSy1xxBL
+from ganymed.bootloader import Bootloader
 
 # define the file to be uploaded
 coreguard_bin = os.path.join("bin", "coreguard-bl.bin")
 application_bin = os.path.join("bin", "zephyr_demo_app.bin")
 
 # create the loader
-flash = SryGnmSy1xxBL()
+flash = Bootloader()
 
 # connect to serial
 flash.connect("/dev/ttyUSB0")

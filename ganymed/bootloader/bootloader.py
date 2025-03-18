@@ -8,6 +8,7 @@
 
 import os.path
 import threading
+import importlib.resources
 
 from .logging_module import logger
 from .sy1xx_bootloader import Sy1xxBootloader
@@ -25,6 +26,7 @@ class Bootloader:
                                  reset_callback=self.bootloader_reset_cb,
                                  task_done_callback=self.bootloader_task_done_callback,
                                  serial_log=self.on_serial_log)
+        self.coreguard = self.get_firmware_coreguard_path("flash")
 
     def log(self, text):
         return
@@ -47,13 +49,24 @@ class Bootloader:
             self.log(f"failed to connect to {port}")
             self.connected = False
 
-    def write_mram(self, core_guard_bin, application_gnm):
+    @staticmethod
+    def get_firmware_coreguard_path(name="flash"):
+        filename = f"bootloader/bl/coreguard-{name}.bin"
+        return importlib.resources.files("ganymed").joinpath(filename)
+
+    def set_debug_mode(self):
+        self.coreguard = self.get_firmware_coreguard_path("debug")
+
+    def set_flash_mode(self ):
+        self.coreguard = self.get_firmware_coreguard_path("flash")
+
+    def write_ganymed_image_to_mram(self, application_gnm):
         if not self.connected:
             self.log("not connected")
             return
 
         values = {
-            "kernel_file": core_guard_bin,
+            "kernel_file": self.coreguard,
             "ota_app_file": application_gnm,
             "toc_file": "",
             "user_file": "",
