@@ -55,13 +55,15 @@ class Bootloader:
         posix_path = importlib.resources.files("ganymed").joinpath("bootloader", "firmware", filename)
         return str(posix_path)
 
-    def set_debug_mode(self):
+    def write_debug_mode(self):
         self.coreguard = self.get_firmware_coreguard_path("debug")
+        self.__write_ganymed_image_to_mram()
 
-    def set_flash_mode(self ):
+    def write_image(self, application_gnm):
         self.coreguard = self.get_firmware_coreguard_path("flash")
+        self.__write_ganymed_image_to_mram(application_gnm)
 
-    def write_ganymed_image_to_mram(self, application_gnm):
+    def __write_ganymed_image_to_mram(self, application_gnm=""):
         if not self.connected:
             self.log("not connected")
             return
