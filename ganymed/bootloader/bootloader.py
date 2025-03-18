@@ -51,7 +51,7 @@ class Bootloader:
 
     @staticmethod
     def get_firmware_coreguard_path(name="flash"):
-        filename = f"bootloader/bl/coreguard-{name}.bin"
+        filename = f"bootloader/firmware/coreguard-{name}.bin"
         return importlib.resources.files("ganymed").joinpath(filename)
 
     def set_debug_mode(self):
