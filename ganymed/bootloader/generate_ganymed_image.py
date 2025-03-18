@@ -49,8 +49,8 @@ def get_global_sram_location():
 
 def add_header(json_file_name, binary_array):
 
-    if len(binary_array) % 4 != 0:
-        remainder = 4 - len(binary_array) % 4
+    if len(binary_array) % 8 != 0:
+        remainder = 8 - len(binary_array) % 8
         binary_array.extend(bytearray(remainder))
 
     size = len(binary_array)
